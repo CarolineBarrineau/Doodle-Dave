@@ -45,7 +45,7 @@ public class stickManMove : MonoBehaviour
     // restart method
     void RestartPlayer() {
         // make his location go back to start
-        // sceneManager.SendMessage("RemoveLife");
+        sceneManager.SendMessage("RemoveLife");
         ahhh.Play(0);
         this.transform.position = startPosition;
         // prevents being affected by other forces when respawning

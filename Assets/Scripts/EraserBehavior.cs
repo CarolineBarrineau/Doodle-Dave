@@ -8,12 +8,12 @@ public class EraserBehavior : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        this.GetComponent<Rigidbody2D>().AddForce(Vector3.left * 100000f);
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(Vector3.left * speed * Time.deltaTime);
+
     }
 }

@@ -11,8 +11,8 @@ public class GameSceneManager : MonoBehaviour
     float currTime;
     public TMP_Text lblTime;
 
-    // public int livesRemaining = 2;
-    // public TMP_Text lblLives;
+    public int livesRemaining = 2;
+    public TMP_Text lblLives;
 
     public AudioSource penClick;
     public GameObject gameManager;
@@ -29,15 +29,18 @@ public class GameSceneManager : MonoBehaviour
     {
         currTime -= Time.deltaTime;
         lblTime.text = ((int)currTime).ToString();
+        lblLives.text = livesRemaining.ToString();
 
-        // if(currTime <= 10.0f)
-        //     lblTime.color = Color.red;
+        if (currTime <= 11.0f)
+        {
+            lblTime.color = Color.red;
 
-        if (currTime <= 0.0f)
-            gameManager.SendMessage("GotoGameOver");
+            if (currTime <= 0.0f)
+                gameManager.SendMessage("GotoGameOver");
+        }
     }
 
-    // void RemoveLife() {
-    //     this.livesRemaining--;
-    // }
+    void RemoveLife() {
+        this.livesRemaining--;
+    }
 }

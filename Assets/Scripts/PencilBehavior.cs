@@ -6,7 +6,7 @@ using UnityEngine;
 public class PencilBehavior : MonoBehaviour
 {
     // Start is called before the first frame update
-
+    public float spawnTime;
     private Rigidbody2D pencil;
     public Transform pen;
     public float speed = 7f; // force
@@ -20,6 +20,7 @@ public class PencilBehavior : MonoBehaviour
     void Start()
     {
         pencil = GetComponent<Rigidbody2D>();
+        this.GetComponent<Rigidbody2D>().AddForce(Vector3.right * 1000000f);
         // leftEdge = Camera.main.ViewportToWorldPoint(Vector3.zero);
         // rightEdge = Camera.main.ViewportToWorldPoint(Vector3.right);
 
@@ -36,8 +37,6 @@ public class PencilBehavior : MonoBehaviour
         // } else {
         //     pen.Translate(direction * Time.deltaTime * Speed);
         // }
-
-        transform.Translate(Vector3.right * speed * Time.deltaTime);
     }
 
 }
